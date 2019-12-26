@@ -1,12 +1,17 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
+name: 'S3 Upload Action'
+description: 'upload an artifact to s3'
+author: 'bsdlp'
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  s3_bucket:
+    description: 's3 bucket name'
+  s3_key:
+    description: 'the destination path in s3'
+  file:
+    description: 'path to file to upload to s3'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.myInput }}
+    - ${{ inputs.file }}
+    - ${{ inputs.s3_bucket }}
+    - ${{ inputs.s3_key }}

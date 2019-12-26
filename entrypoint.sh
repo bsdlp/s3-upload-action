@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-echo "hello $1"
+s3cmd put $1 s3://$2/$3
